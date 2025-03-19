@@ -6,7 +6,7 @@
 /*   By: aaycan <aaycan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 09:31:31 by aaycan            #+#    #+#             */
-/*   Updated: 2025/03/15 10:04:51 by aaycan           ###   ########.fr       */
+/*   Updated: 2025/03/18 00:11:58 by aaycan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*ft_order_args(char *args);
 static void	ft_initialize_vars(int *s, int *i, int *digit_flag);
 static int	ft_order_args_pt_two(char *args);
 
-long long	ft_get_digit(char **argv, int which_one)
+long long	ft_get_digit(char **argv, int which_one, t_list *head_node)
 {
 	long long	val;
 	char		*args;
@@ -27,13 +27,15 @@ long long	ft_get_digit(char **argv, int which_one)
 	val = 0;
 	args = ft_create_args(argv);
 	if (!args)
-		return (0);
+		ft_error_exit(head_node);
 	args_format = ft_order_args(args);
 	free(args);
 	if (!args_format)
-		return (0);
+		ft_error_exit(head_node);
 	val = ft_get_val(args_format, which_one);
 	free(args_format);
+	if (val == 42000000000)
+		ft_error_exit(head_node);
 	return (val);
 }
 

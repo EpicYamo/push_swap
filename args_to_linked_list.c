@@ -6,7 +6,7 @@
 /*   By: aaycan <aaycan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 18:33:26 by aaycan            #+#    #+#             */
-/*   Updated: 2025/03/15 13:22:19 by aaycan           ###   ########.fr       */
+/*   Updated: 2025/03/18 00:09:25 by aaycan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 static int		ft_number_count(char **argv);
 static t_list	*ft_create_head_node(char **argv);
-static int		ft_add_node(t_list *current_node, char **argv, int index);
+static int		ft_add_node(t_list *current_node, char **argv,
+					int index, t_list *head_node);
 
 t_list	*ft_set_list(char **argv)
 {
@@ -30,11 +31,8 @@ t_list	*ft_set_list(char **argv)
 	i = 2;
 	while (i <= digit_count)
 	{
-		if (ft_add_node(current_node, argv, i) == -1)
-		{
-			ft_free_list(head_node);
-			exit(EXIT_FAILURE);
-		}
+		if (ft_add_node(current_node, argv, i, head_node) == -1)
+			ft_error_exit(head_node);
 		current_node = current_node->next;
 		i++;
 	}
@@ -78,24 +76,25 @@ static t_list	*ft_create_head_node(char **argv)
 	if (!head_node)
 		exit(EXIT_FAILURE);
 	head_node->prev = NULL;
-	head_node->value = ft_get_digit(argv, 1);
 	head_node->next = NULL;
 	head_node->target = NULL;
 	head_node->index = 0;
 	head_node->push_cost = 0;
 	head_node->above_median = 0;
 	head_node->cheapest = 0;
+	head_node->value = ft_get_digit(argv, 1, head_node);
 	return (head_node);
 }
 
-static int	ft_add_node(t_list *current_node, char **argv, int index)
+static int	ft_add_node(t_list *current_node, char **argv,
+						int index, t_list *head_node)
 {
 	t_list	*new_node;
 
 	new_node = malloc(sizeof(t_list));
 	if (!new_node)
 		return (-1);
-	new_node->value = ft_get_digit(argv, index);
+	current_node->next = new_node;
 	new_node->prev = current_node;
 	new_node->next = NULL;
 	new_node->target = NULL;
@@ -103,6 +102,6 @@ static int	ft_add_node(t_list *current_node, char **argv, int index)
 	new_node->push_cost = 0;
 	new_node->above_median = 0;
 	new_node->cheapest = 0;
-	current_node->next = new_node;
+	new_node->value = ft_get_digit(argv, index, head_node);
 	return (0);
 }

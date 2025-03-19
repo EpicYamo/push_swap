@@ -6,7 +6,7 @@
 /*   By: aaycan <aaycan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 09:58:30 by aaycan            #+#    #+#             */
-/*   Updated: 2025/03/15 10:04:06 by aaycan           ###   ########.fr       */
+/*   Updated: 2025/03/18 00:11:28 by aaycan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,10 @@ void	ft_free_list(t_list *head_node)
 		free(current_node);
 		current_node = next_node;
 	}
+}
+
+void	ft_error_exit(t_list *head_node)
+{
+	ft_free_list(head_node);
+	exit(EXIT_FAILURE);
 }

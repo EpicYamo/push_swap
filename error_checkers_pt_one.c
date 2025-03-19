@@ -6,7 +6,7 @@
 /*   By: aaycan <aaycan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 09:16:03 by aaycan            #+#    #+#             */
-/*   Updated: 2025/03/15 10:05:04 by aaycan           ###   ########.fr       */
+/*   Updated: 2025/03/17 23:43:28 by aaycan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_error_check(int argc, char **argv)
 
 void	ft_write_error(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 

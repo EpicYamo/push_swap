@@ -6,7 +6,7 @@
 /*   By: aaycan <aaycan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 21:48:36 by aaycan            #+#    #+#             */
-/*   Updated: 2025/03/15 09:59:41 by aaycan           ###   ########.fr       */
+/*   Updated: 2025/03/18 00:11:36 by aaycan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		ft_error_check(int argc, char **argv);
 void		ft_check_sign_and_digit(char *arg, int *sign_flag, int *digit_flag);
 void		ft_error_check_repeated_numbers(t_list *stack);
 t_list		*ft_set_list(char **argv);
-long long	ft_get_digit(char **argv, int which_one);
+long long	ft_get_digit(char **argv, int which_one, t_list *head_node);
 int			ft_order_args_pt_three(char *args);
 long long	ft_get_val(char *args_format, int which_one);
 void		ft_write_error(void);
@@ -66,5 +66,6 @@ void		ft_push_prep(t_list **stack, t_list *top_node, int option);
 void		ft_init_target_b(t_list *stack_a, t_list *stack_b);
 void		ft_set_vars_b(t_list *stack_a, t_list *stack_b);
 void		ft_pass_b_to_a(t_list **stack_a, t_list **stack_b);
+void		ft_error_exit(t_list *head_node);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aaycan <aaycan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 09:38:06 by aaycan            #+#    #+#             */
-/*   Updated: 2025/03/15 10:04:36 by aaycan           ###   ########.fr       */
+/*   Updated: 2025/03/18 00:04:35 by aaycan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static long long	ft_get_val_pt_two(char *args_format, int start, int end)
 	i = 0;
 	number = malloc(sizeof(char) * (end - start + 2));
 	if (!number)
-		return (0);
+		return (42000000000);
 	while (args_format[start] && (start <= end))
 	{
 		number[i] = args_format[start];

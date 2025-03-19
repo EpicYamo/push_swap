@@ -6,7 +6,7 @@
 /*   By: aaycan <aaycan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 21:08:17 by aaycan            #+#    #+#             */
-/*   Updated: 2025/03/15 10:03:45 by aaycan           ###   ########.fr       */
+/*   Updated: 2025/03/17 23:58:11 by aaycan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_rotate_both(t_list **stack_a, t_list **stack_b,
 }
 
 void	ft_rev_rotate_both(t_list **stack_a, t_list **stack_b,
-						t_list *cheapest_node)
+							t_list *cheapest_node)
 {
 	while (*stack_b != cheapest_node->target && *stack_a != cheapest_node)
 		rrr(stack_a, stack_b);
